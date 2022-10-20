@@ -63,6 +63,7 @@
 
                 </tr>
                 <?php
+            }
           ?>
             </tbody>
         </table>
