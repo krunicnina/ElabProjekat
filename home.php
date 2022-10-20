@@ -1,4 +1,21 @@
+<?php
+require 'dbBroker.php';
+require 'prijava.php';
+$prijava= Prijava::getAll($conn);
+if($prijava){
+    echo "Greska prilikom pristupanja bazi";
+    exit();
 
+}
+if($prijava->num_rows==0){
+    echo "Ne postoji nijedan kolokvijum";
+    exit();
+}
+
+else {
+
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -49,6 +66,11 @@
             <?php
             while ($red = $result->fetch_array()) {
                 ?>
+
+                <?php while($red=$prijava->fetch_array()):
+
+
+                ?>
                 <tr>
                     <td><?php echo $red["predmet"] ?></td>
                     <td><?php echo $red["katedra"] ?></td>
@@ -62,9 +84,8 @@
                     </td>
 
                 </tr>
-                <?php
-            }
-          ?>
+                <?php endwhile();
+            } ?>
             </tbody>
         </table>
         <div class="row" >

@@ -1,13 +1,17 @@
 <?php
 // include 'model/user.php'
+
 require 'model/user.php';
+
 session_start();
-if(isset($_POST['username'] && isset($_POST['password']))){
+ if(isset($_POST['username'] && isset($_POST['password']))){
     $user=$_POST['username'];
     $pass= $_POST['password'];
+    echo "super";
+ }
 
     $korisnik=new User(1,$user,$pass);
-  //  $odgovor= $korisnik->loginUser($korisnik);
+//    $odgovor= $korisnik->loginUser($korisnik);
     $odgovor=User::loginUser($korisnik);
     if($odgovor){
         echo "Uspesno logovanje";
@@ -16,7 +20,7 @@ if(isset($_POST['username'] && isset($_POST['password']))){
     }
 
 }
-?>
+ ?>
 
 <!DOCTYPE html>
 <html lang="en">
