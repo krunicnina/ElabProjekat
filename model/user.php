@@ -11,9 +11,14 @@ class User {
        $this->password=$password;
     }
 //login
-public static function loginUser($korisnik){
+public static function loginUser($korisnik, mysqli $conn){
 //upit za bazu
-return true;
+
+$query= "SELECT * FROM user WHERE username= '$korisnik->username' AND 'password=korisnik->password'";
+return $conn->query($query);
+
+
+//return true;
 
 }
 

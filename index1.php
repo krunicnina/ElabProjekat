@@ -1,5 +1,6 @@
 <?php
 // include 'model/user.php'
+require 'dbBroker.php';
 require 'model/user.php';
 session_start();
 if(isset($_POST['username'] && isset($_POST['password']))){
@@ -8,11 +9,15 @@ if(isset($_POST['username'] && isset($_POST['password']))){
 
     $korisnik=new User(1,$user,$pass);
   //  $odgovor= $korisnik->loginUser($korisnik);
-    $odgovor=User::loginUser($korisnik);
-    if($odgovor){
+    $odgovor=User::loginUser($korisnik, $conn);
+    if($odgovor->num_rows ==1){
         echo "Uspesno logovanje";
+        $_SESSION['user_id']=$korisnik->id;
         header("Location: home.php");
         exit();
+    }
+    else {
+        echo "Neuspesno logovanje";
     }
 
 }
