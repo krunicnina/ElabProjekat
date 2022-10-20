@@ -63,7 +63,7 @@
 
                 </tr>
                 <?php
-          
+          ?>
             </tbody>
         </table>
         <div class="row" >
