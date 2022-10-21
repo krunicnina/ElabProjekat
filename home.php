@@ -93,7 +93,7 @@ else {
                 <button id="btn-obrisi" class="btn btn-danger" style="background-color: red; border: 1px solid white;">Obrisi</button>
             </div>
 
-            <div class="col-md-2" style="text-align: right>; color:" >
+            <div class="col-md-2" style="text-align: right; color:black" >
                     <button id="btn-sortiraj" class="btn btn-normal" onclick="sortTable()">Sortiraj</button>
                 </div>
 
