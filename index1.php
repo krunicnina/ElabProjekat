@@ -3,7 +3,7 @@
 require 'dbBroker.php';
 require 'model/user.php';
 session_start();
-if(isset($_POST['username'] && isset($_POST['password']))){
+if(isset($_POST['username']) && isset($_POST['password'])){
     $user=$_POST['username'];
     $pass= $_POST['password'];
 

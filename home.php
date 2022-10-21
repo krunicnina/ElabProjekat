@@ -1,8 +1,8 @@
 <?php
 require 'dbBroker.php';
-require 'prijava.php';
+require 'model/prijava.php';
 $prijava= Prijava::getAll($conn);
-if($prijava){
+if(!$prijava){
     echo "Greska prilikom pristupanja bazi";
     exit();
 
@@ -64,12 +64,7 @@ else {
             </thead>
             <tbody>
             <?php
-            while ($red = $result->fetch_array()) {
-                ?>
-
-                <?php while($red=$prijava->fetch_array()):
-
-
+            while ($red = $prijava->fetch_array()): 
                 ?>
                 <tr>
                     <td><?php echo $red["predmet"] ?></td>
@@ -84,7 +79,7 @@ else {
                     </td>
 
                 </tr>
-                <?php endwhile();
+                <?php endwhile;
             } ?>
             </tbody>
         </table>
